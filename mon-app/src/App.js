@@ -4,7 +4,6 @@ import Button from './components/Button/Button';
 import Title from './components/Title/Title';
 import Card from './components/Card/Card';
 
-// import images from src folder
 import img1 from './morocco.png';
 import img2 from './naruto.jpg';
 import img3 from './gon-hunter-x-hunter.avif';
@@ -55,8 +54,7 @@ function App(){
 
   function handleCardClick(card){
     if(disable) return;
-    if(card === first) return; // clicking same card
-    // if already matched or flipped
+    if(card === first) return;
     if(card.matched || card.flipped) return;
 
     const updated = cards.map(c => c.id === card.id ? {...c, flipped: true} : c);
@@ -68,7 +66,6 @@ function App(){
       setSecond(card);
       setDisable(true);
       setMoves(m => m + 1);
-      // compare after small delay to allow animation
       setTimeout(()=>{
         const firstCard = updated.find(c => c.id === first.id);
         const secondCard = updated.find(c => c.id === card.id);
